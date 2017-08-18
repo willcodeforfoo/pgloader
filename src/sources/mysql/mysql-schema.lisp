@@ -341,6 +341,7 @@
   (case (intern (string-upcase type) "KEYWORD")
     (:geometry   (format nil "astext(`~a`) as `~a`" name name))
     (:point      (format nil "astext(`~a`) as `~a`" name name))
+    (:polygon      (format nil "astext(`~a`) as `~a`" name name))
     (:linestring (format nil "astext(`~a`) as `~a`" name name))
     (t           (format nil "`~a`" name))))
 

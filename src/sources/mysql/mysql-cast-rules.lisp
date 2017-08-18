@@ -134,18 +134,14 @@
      :target (:type ,#'enum-or-set-name)
      :using pgloader.transforms::set-to-enum-array)
 
-    ;; geometric data types, just POINT for now
-    (:source (:type "geometry")
-     :target (:type "point")
-     :using pgloader.transforms::convert-mysql-point)
-
     (:source (:type "point")
-     :target (:type "point")
-     :using pgloader.transforms::convert-mysql-point)
+     :target (:type "text"))
+
+    (:source (:type "polygon")
+     :target (:type "text"))
 
     (:source (:type "linestring")
-     :target (:type "path")
-     :using pgloader.transforms::convert-mysql-linestring))
+     :target (:type "text")))
   "Data Type Casting rules to migrate from MySQL to PostgreSQL")
 
 
