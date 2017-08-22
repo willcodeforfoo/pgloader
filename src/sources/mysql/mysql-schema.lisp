@@ -339,10 +339,10 @@
    Mostly we just use the name, but in case of POINT we need to use
    astext(name)."
   (case (intern (string-upcase type) "KEYWORD")
-    (:geometry   (format nil "astext(`~a`) as `~a`" name name))
-    (:point      (format nil "astext(`~a`) as `~a`" name name))
-    (:polygon      (format nil "astext(`~a`) as `~a`" name name))
-    (:linestring (format nil "astext(`~a`) as `~a`" name name))
+    (:geometry   (format nil "CAST(AsText(`~a`) AS CHAR) as `~a`" name name))
+    (:point      (format nil "CAST(AsText(`~a`) AS CHAR) as `~a`" name name))
+    (:polygon    (format nil "CAST(AsText(`~a`) AS CHAR) as `~a`" name name))
+    (:linestring (format nil "CAST(AsText(`~a`) AS CHAR) as `~a`" name name))
     (t           (format nil "`~a`" name))))
 
 (defun get-column-list (dbname table-name)
